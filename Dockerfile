@@ -20,7 +20,4 @@ EXPOSE 80
 
 EXPOSE 3000
 
-CMD [ "/usr/bin/nghttpd", "--frontend-no-tls",
-    "--accesslog-file", "/data/logs/access.log",
-    "--errorlog-file" "/data/logs/error.log",
-    "--pid-file", "/data/run/nghttpd.pid" ]
+CMD [ "/usr/bin/nghttpx", "--frontend-no-tls", "--conf", "/data/etc/nghttpx.conf" ]
