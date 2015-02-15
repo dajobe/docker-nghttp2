@@ -16,8 +16,10 @@ VOLUME /data
 
 COPY nghttpx.conf /data/etc/nghttpx.conf
 
+COPY start-nghttpx /usr/bin/start-nghttpx
+
 EXPOSE 80
 
 EXPOSE 3000
 
-CMD [ "/usr/bin/nghttpx", "--frontend-no-tls", "--conf", "/data/etc/nghttpx.conf" ]
+CMD [ "/usr/bin/start-nghttpx" ]

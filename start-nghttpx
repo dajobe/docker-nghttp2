@@ -1,0 +1,16 @@
+#!/bin/sh
+# Start nghttpx HTTP/2 proxy with ability to set backend and extra
+# runtime args
+
+args=""
+if test -n "$HOST"; then
+    if test -z "$PORT"; then
+       PORT=80
+    fi
+    args="$args --backend $HOST,$PORT"
+fi
+if test -n "$ARGS"; then
+    args="$args $ARGS"
+fi
+ 
+exec /usr/bin/nghttpx --frontend-no-tls --conf /data/etc/nghttpx.conf $args
