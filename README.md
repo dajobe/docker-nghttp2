@@ -9,5 +9,12 @@ To run it, the hostname and port of the HTTP/1.0 server that it is
 proxying to need to be given via the `HOST` and `PORT` (default 80)
 envariables:
 
-    $ docker run --name nghttpx -d -p 3000:3000 -v $PWD/data:/data -e HOST=192.168.1.2 -e PORT=12345  dajobe/nghttpx
+    $ docker run --name nghttpx -d -p 3000:3000 -v $PWD/data:/data \
+        -e HOST=192.168.1.2 -e PORT=12345 dajobe/nghttpx
 
+To run with TLS/SSL, put the key file in `$PWD/data/etc/keyfile` and
+cert file in `$PWD/data/etc/certfile` and run with:
+
+    $ docker run --name nghttpx -d -p 80:3000 -v $PWD/data:/data \
+       -e HOST=192.168.1.2 -e PORT=12345 \
+       -e KEY_FILE=/data/etc/keyfile CERT_FILE=/data/etc/certfile dajobe/nghttpx
