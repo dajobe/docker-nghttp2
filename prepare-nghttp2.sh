@@ -16,6 +16,3 @@ autoconf
 
 ./configure --enable-app --disable-hpack-tools --disable-examples \
 	    --prefix=/usr
-
-mkdir -p /var/log/nghttp2
-
