@@ -10,11 +10,9 @@ RUN cd /build/nghttp2 && make install
 
 RUN /build/cleanup-nghttp2.sh && rm -rf /build
 
-RUN mkdir -p /data/etc /data/etc/ssl/certs /data/etc/ssl/private /data/logs /data/run
-
 VOLUME /data
 
-COPY nghttpx.conf /data/etc/nghttpx.conf
+COPY nghttpx.conf /etc/nghttpx.conf
 
 COPY start-nghttpx /usr/bin/start-nghttpx
 

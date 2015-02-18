@@ -13,6 +13,10 @@ if test -n "$ARGS"; then
     args="$args $ARGS"
 fi
 
-mkdir -p /data/logs /data/run
+mkdir -p /data/etc /data/etc/ssl/certs /data/etc/ssl/private /data/logs /data/run
+
+if ! -r /data/etc/nghttpx.conf; then
+  cp /etc/nghttpx.conf /data/etc/nghttpx.conf
+fi
 
 exec /usr/bin/nghttpx --frontend-no-tls --conf /data/etc/nghttpx.conf $args
