@@ -1,24 +1,32 @@
-nghttpx HTTP/2.0 proxy
-======================
+nghttp2 HTTP/2.0 proxy and client
+=================================
 
-This docker image allows running the nghttpx HTTP/2.0 proxy in front
-of an existing HTTP/1.0 server, providing support for HTTP/2.0 http
-or https URLs.
+This *unofficial* docker image provides HTTP/1.0 proxies and clients
+from [nghttp2](https://github.com/tatsuhiro-t/nghttp2) by
+[Tatsuhiro Tsujikawa](https://github.com/tatsuhiro-t):
 
-Source at https://github.com/dajobe/docker/tree/master/nghttp2
+* `nghttpx` HTTP/2.0 proxy sits in front of an existing HTTP/1.0
+  server to provide support for HTTP/2.0 http or https URLs.
+* `nghttp` HTTP/2.0 client can make HTTP/2.0 requests and show
+  debugging info.
 
-building
---------
+See [github](https://github.com/dajobe/docker/tree/master/nghttp2)
+for the sources to this docker image.
+
+
+Building Image
+--------------
 
 If you want to build the image yourself use this command:
 
     $ docker build -t dajobe/nghttpx .
 
 The image is prebuilt and uploaded the Docker hub so you skip this
-stip and follow the next section.
+step and follow the next section.
 
-running
--------
+
+Running Proxy Server
+--------------------
 
 The proxy runs and uses a volume `/data` that generally should be
 mapped to a local data directory e.g `$PWD/data` to store logs and
@@ -53,14 +61,12 @@ that docker is running on and a separate server such as apache or
 nginx used to deliver a website over HTTP/1.0 on some `PORT` such as
 12345 in the examples above.
 
-clients
--------
 
-The most recent Mozilla Firefox and Google Chrome browsers support
-HTTP/2.0 over https; it may require some configuration.
+Running Client
+--------------
 
-You can also - recursively - run the `nghttp` client included in the
-image if you want to test it out:
+You can also run the `nghttp` client included in the image if you
+want to test out HTTP/2.0:
 
     $ docker run --rm -it dajobe/nghttpx nghttp -v https://nghttp2.org/
 	[  0.374] Connected
@@ -74,3 +80,11 @@ image if you want to test it out:
     ...
 
 (lots of output truncated)
+
+See [the docs](https://github.com/tatsuhiro-t/nghttp2/blob/master/README.rst)
+for details on how to use the client.
+
+Alternately, the most recent Mozilla Firefox and Google Chrome
+browsers support HTTP/2.0 over https although it may require some
+configuration.
+
