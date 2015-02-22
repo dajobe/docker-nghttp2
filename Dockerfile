@@ -6,7 +6,7 @@ COPY *.sh /build/
 
 RUN /build/prepare-nghttp2.sh && \
     cd /build/nghttp2 && make install && \
-    rm -rf /build/nghttp2 && /build/cleanup-nghttp2.sh && rm -rf /build
+    cd / && /build/cleanup-nghttp2.sh && rm -rf /build
 
 VOLUME /data
 

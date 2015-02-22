@@ -2,8 +2,6 @@
 
 . /build/config-nghttp2.sh
 
-rm -rf /build/nghttp2
-
 apt-get remove -y $NGHTTP2_BUILD_PACKAGES
 
 apt-get autoremove -y
