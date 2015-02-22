@@ -11,4 +11,8 @@ apt-get autoremove -y
 # Install the run-time dependencies
 apt-get install $minimal_apt_get_args $NGHTTP2_RUN_PACKAGES
 
-. /build/cleanup.sh
+# . /build/cleanup.sh
+rm -rf /tmp/* /var/tmp/*
+
+apt-get clean
+rm -rf /var/lib/apt/lists/*

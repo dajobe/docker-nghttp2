@@ -1,12 +1,20 @@
 #!/bin/sh
 # This file intended to be sourced
 
-. /build/config.sh
+# . /build/config.sh
+
+# Prevent initramfs updates from trying to run grub and lilo.
+export INITRD=no
+export DEBIAN_FRONTEND=noninteractive
+
+minimal_apt_get_args='-y --no-install-recommends'
+
 
 ## Build time dependencies ##
 
-# git is needed for cloning; not building
-NGHTTP2_BUILD_PACKAGES="git"
+# git and ca-certificates is needed for git clone; not building
+# alternate would be to download a release tarball with curl or wget
+NGHTTP2_BUILD_PACKAGES="git ca-certificates"
 
 # Core list from cocs
 NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev"
