@@ -82,6 +82,9 @@ runs in only one mode ( via the `--frontend-no-tls` flag to nghttpx ).
 You will also need to give the containers different names with
 the `--name` option to the `docker(1)` command
 
+Finally the envariable `ARGS` can be used to set any additional proxy
+runtime args that may be required.  Creating a custom config file at
+`$PWD/data/etc/nghttpx.conf` as describe above is an alternative.
 
 
 Running the nghttp HTTP/2.0 Client
