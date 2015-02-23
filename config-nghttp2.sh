@@ -1,4 +1,3 @@
-#!/bin/sh
 # This file intended to be sourced
 
 # . /build/config.sh
@@ -16,7 +15,7 @@ minimal_apt_get_args='-y --no-install-recommends'
 # alternate would be to download a release tarball with curl or wget
 NGHTTP2_BUILD_PACKAGES="git ca-certificates"
 
-# Core list from cocs
+# Core list from docs
 NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev"
 
 # Optional:

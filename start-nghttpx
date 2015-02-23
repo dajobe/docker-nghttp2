@@ -1,6 +1,6 @@
 #!/bin/sh
-# Start nghttpx HTTP/2 proxy with ability to set backend, SSL config
-# and extra runtime args
+# Start nghttpx HTTP/2 proxy with ability to set backend, TLS/SSL
+# config and extra runtime args
 
 cert_args=""
 args=""
