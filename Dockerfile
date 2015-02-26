@@ -4,6 +4,8 @@ MAINTAINER Dave Beckett <dave@dajobe.org>
 
 COPY *.sh /build/
 
+ENV VERSION 0.7.5
+
 RUN /build/prepare-nghttp2.sh && \
     cd /build/nghttp2 && make install && \
     cd / && /build/cleanup-nghttp2.sh && rm -rf /build

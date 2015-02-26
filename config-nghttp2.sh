@@ -13,7 +13,8 @@ minimal_apt_get_args='-y --no-install-recommends'
 
 # git and ca-certificates is needed for git clone; not building
 # alternate would be to download a release tarball with curl or wget
-NGHTTP2_BUILD_PACKAGES="git ca-certificates"
+# xz-utils is needed for tar to uncompress an .xz tarball
+NGHTTP2_BUILD_PACKAGES="git ca-certificates curl xz-utils"
 
 # Core list from docs
 NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev"
