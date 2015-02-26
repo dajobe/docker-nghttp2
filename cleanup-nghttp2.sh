@@ -2,9 +2,9 @@
 
 . /build/config-nghttp2.sh
 
-apt-get remove -y $NGHTTP2_BUILD_PACKAGES
+AUTO_ADDED_PACKAGES=`apt-mark showauto`
 
-apt-get autoremove -y
+apt-get remove --purge -y $NGHTTP2_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
 
 # Install the run-time dependencies
 apt-get install $minimal_apt_get_args $NGHTTP2_RUN_PACKAGES
