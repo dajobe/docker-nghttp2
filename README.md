@@ -10,7 +10,7 @@ from [nghttp2](https://github.com/tatsuhiro-t/nghttp2) by
 * `nghttp` HTTP/2.0 client to make HTTP/2.0 requests and show
   debugging info.
 
-See [github](https://github.com/dajobe/docker/tree/master/nghttp2)
+See [github](https://github.com/dajobe/docker-nghttp2/)
 for the sources to this docker image.
 
 
