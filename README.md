@@ -94,14 +94,14 @@ You can also run the `nghttp` client included in the image if you
 want to test out HTTP/2.0:
 
     $ docker run --rm -it dajobe/nghttpx nghttp -v https://nghttp2.org/
-	[  0.374] Connected
-	[  0.633][NPN] server offers:
+	[  0.246] Connected
+	[  0.360][NPN] server offers:
 			  * h2
 			  * h2-16
 			  * h2-14
 			  * spdy/3.1
 			  * http/1.1
-	The negotiated protocol: h2-16
+    The negotiated protocol: h2
     ...
 
 (lots of output truncated)
