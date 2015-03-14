@@ -2,6 +2,11 @@
 
 . /build/config-nghttp2.sh
 
+# Configure use of squid-deb-proxy if it is found on the host OS port 8000
+# Uses a small perl script to test it because perl is in debian:jessie base
+# image so we can do this before apt-get is updated
+perl /build/squid-deb-proxy-config.pl
+
 apt-get update -y
 
 apt-get install $minimal_apt_get_args $NGHTTP2_BUILD_PACKAGES
