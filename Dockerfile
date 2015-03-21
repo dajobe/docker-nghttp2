@@ -2,7 +2,7 @@ FROM debian:jessie
 
 MAINTAINER Dave Beckett <dave@dajobe.org>
 
-COPY *.sh *.pl /build/
+COPY *.sh /build/
 
 ENV NGHTTP2_VERSION 0.7.7
 
