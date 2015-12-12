@@ -30,5 +30,5 @@ NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++"
 
 
 ## Run time dependencies ##
-#   openssl binary is needed for OCSP /usr/share/nghttp2/fetch-ocsp-response
-NGHTTP2_RUN_PACKAGES="libev4 libevent-2.0-5 libevent-openssl-2.0-5 libjemalloc1 libxml2 zlib1g openssl"
+#   openssl and python are needed for OCSP /usr/share/nghttp2/fetch-ocsp-response
+NGHTTP2_RUN_PACKAGES="libev4 libevent-2.0-5 libevent-openssl-2.0-5 libjemalloc1 libxml2 zlib1g openssl python"
