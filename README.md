@@ -13,6 +13,9 @@ from [nghttp2](https://github.com/tatsuhiro-t/nghttp2) by
 See [github](https://github.com/dajobe/docker-nghttp2/)
 for the sources to this docker image.
 
+See [github releases](https://github.com/nghttp2/nghttp2/releases)
+for the changes between versions.
+
 
 Building the docker image
 -------------------------
@@ -38,8 +41,10 @@ the volume mappings suggested.  The default config file will be
 written to `/data/etc/nghttpx.conf` if it doesn't exist; if it is
 updated, it will not be replaced the next time the proxy is urn.
 
+1. Proxy from HTTP/2.0 (non-encrypted) to HTTP/1.0
+
 To run the proxy with non-encrypted HTTP/2.0 on port 80 that can
-serve an http url, proxying to an HTTP/1.0 server, the hostname and
+serve http traffic, proxying to an HTTP/1.0 server, the hostname and
 port of the HTTP/1.0 server (the _backend_ ) needs to be given via
 the `HOST` and `PORT` envariables:
 
@@ -48,12 +53,14 @@ the `HOST` and `PORT` envariables:
         -e HOST=192.168.1.2 -e PORT=12345 \
         dajobe/nghttpx
 
-To run the proxy with TLS/SSL HTTP/2.0 on port 443 that can serve an
-https url, in addition to the host and port config above you will
-need to put the server TLS/SSL key file in `$PWD/data/etc/keyfile`
-and the certificate file in `$PWD/data/etc/certfile` and set the
-`KEY_FILE` and `CERT_FILE` envariable arguments to those paths like
-this:
+2. Proxy from HTTP/2.0 (encrypted) to HTTP/1.0
+
+To run the proxy with TLS/SSL HTTP/2.0 on port 443 that can serve
+https traffic, in addition to the host and port config `HOST` and
+`PORT` envariables as decribed above, you will need to put the server
+TLS/SSL key file in `$PWD/data/etc/keyfile` and the certificate file
+in `$PWD/data/etc/certfile` and set the `KEY_FILE` and `CERT_FILE`
+envariable arguments to those paths like this:
 
     $ mkdir -p data
     $ docker run --name nghttpx -d -p 443:3000 -v $PWD/data:/data \
@@ -63,8 +70,10 @@ this:
 
 Generally `HOST` should be set to a private IP address of the host
 that `docker(1)` is running on and a separate server such as Apache
-or Nginx used to deliver a website over HTTP/1.0 on the `PORT` such
-as 12345 in the examples above.
+or Nginx used to deliver the HTTP/1.0 content on the `PORT` such as
+12345 in the examples above.
+
+3. Proxy Admin
 
 To stop the server container in either case above use:
 
