@@ -65,7 +65,8 @@ envariable arguments to those paths like this:
     $ mkdir -p data
     $ docker run --name nghttpx -d -p 443:3000 -v $PWD/data:/data \
        -e HOST=192.168.1.2 -e PORT=12345 \
-       -e KEY_FILE=/data/etc/keyfile CERT_FILE=/data/etc/certfile \
+       -e KEY_FILE=/data/etc/keyfile \
+       -e CERT_FILE=/data/etc/certfile \
        dajobe/nghttpx
 
 Generally `HOST` should be set to a private IP address of the host
