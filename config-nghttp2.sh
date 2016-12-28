@@ -17,7 +17,7 @@ minimal_apt_get_args='-y --no-install-recommends'
 NGHTTP2_BUILD_PACKAGES="git ca-certificates curl xz-utils"
 
 # Core list from docs
-NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev"
+NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev"
 
 # Optional:
 #   libcunit1-dev - for tests
@@ -31,4 +31,4 @@ NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++"
 
 ## Run time dependencies ##
 #   openssl and python are needed for OCSP /usr/share/nghttp2/fetch-ocsp-response
-NGHTTP2_RUN_PACKAGES="libev4 libevent-2.0-5 libevent-openssl-2.0-5 libjemalloc1 libxml2 zlib1g openssl python"
+NGHTTP2_RUN_PACKAGES="libev4 libevent-2.0-5 libevent-openssl-2.0-5 libjemalloc1 libxml2 zlib1g openssl python libc-ares2"
