@@ -4,7 +4,7 @@ IMAGE_TAG=latest
 NGHTTPX_VERSION=$(shell awk '/^ENV NGHTTPX_VERSION/ {print $3}' Dockerfile)
 
 build:
-	@echo "Building hbase docker image $(NGHTTPX_VERSION)"
+	@echo "Building nghttpx docker image $(NGHTTPX_VERSION)"
 	docker build -t $(IMAGE_NAME) .
 
 # This won't work unless you have already set up the repository config
