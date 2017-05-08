@@ -17,7 +17,7 @@ minimal_apt_get_args='-y --no-install-recommends'
 NGHTTP2_BUILD_PACKAGES="git ca-certificates curl xz-utils"
 
 # Core list from docs
-NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev"
+NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev libcunit1-dev libjansson-dev libsystemd-dev"
 
 # Optional:
 #   libcunit1-dev - for tests
