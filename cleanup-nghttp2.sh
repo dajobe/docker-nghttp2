@@ -4,7 +4,11 @@
 
 AUTO_ADDED_PACKAGES=`apt-mark showauto`
 
-apt-get remove --purge -y $NGHTTP2_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
+if [ -f "/tmp/dpgk-selections.txt" ]; then
+  dpkg --set-selections </tmp/dpgk-selections.txt && apt-get -u dselect-upgrade
+else
+  apt-get remove --purge -y $NGHTTP2_BUILD_PACKAGES $AUTO_ADDED_PACKAGES
+fi
 
 # Install the run-time dependencies
 apt-get install $minimal_apt_get_args $NGHTTP2_RUN_PACKAGES
