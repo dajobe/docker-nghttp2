@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Start nghttpx HTTP/2 proxy with ability to set backend, TLS/SSL
 # config and extra runtime args
 

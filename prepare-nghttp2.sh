@@ -1,8 +1,12 @@
-#!/bin/sh -x
+#!/bin/bash -x
 
 . /build/config-nghttp2.sh
 
 apt-get update -y
+
+dpkg --get-selections | awk '{print $1}' | sort > "$PACKAGES_INSTALLED_LOG"
+echo "Installed packages at start"
+cat "$PACKAGES_INSTALLED_LOG"
 
 apt-get install $minimal_apt_get_args $NGHTTP2_BUILD_PACKAGES
 

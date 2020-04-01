@@ -9,6 +9,10 @@ export DEBIAN_FRONTEND=noninteractive
 minimal_apt_get_args='-y --no-install-recommends'
 
 
+# File containing original installed packages
+PACKAGES_INSTALLED_LOG="/tmp/packages.lst"
+
+
 ## Build time dependencies ##
 
 # git and ca-certificates is needed for git clone; not building
@@ -31,4 +35,9 @@ NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++"
 
 ## Run time dependencies ##
 #   openssl and python are needed for OCSP /usr/share/nghttp2/fetch-ocsp-response
-NGHTTP2_RUN_PACKAGES="libev4 libevent-2.0-5 libevent-openssl-2.0-5 libjemalloc1 libxml2 zlib1g openssl python libc-ares2"
+NGHTTP2_RUN_PACKAGES="libev4 libevent-2.1 libevent-openssl-2.1 libjemalloc2 libxml2 zlib1g openssl python libc-ares2"
+
+# apt-get remove --allow-remove-essential enters an infinite loop of
+# pam errors with this package
+#  login: because it depends on libpam*
+PACKAGES_REMOVE_SKIP_REGEX='(libpam|login)'
