@@ -21,7 +21,7 @@ PACKAGES_INSTALLED_LOG="/tmp/packages.lst"
 NGHTTP2_BUILD_PACKAGES="git ca-certificates curl xz-utils"
 
 # Core list from docs
-NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev"
+NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config python3 python3-dev zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev"
 
 # Optional:
 #   libcunit1-dev - for tests
@@ -35,7 +35,7 @@ NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++"
 
 ## Run time dependencies ##
 #   openssl and python are needed for OCSP /usr/share/nghttp2/fetch-ocsp-response
-NGHTTP2_RUN_PACKAGES="libev4 libevent-2.1 libevent-openssl-2.1 libjemalloc2 libxml2 zlib1g openssl python libc-ares2"
+NGHTTP2_RUN_PACKAGES="libev4 libevent-2.1 libevent-openssl-2.1 libjemalloc2 libxml2 zlib1g openssl python3 libc-ares2"
 
 # apt-get remove --allow-remove-essential enters an infinite loop of
 # pam errors with this package
