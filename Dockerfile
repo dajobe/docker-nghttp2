@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bookworm
 
 MAINTAINER Dave Beckett <dave@dajobe.org>
 
