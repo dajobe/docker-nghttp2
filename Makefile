@@ -8,10 +8,10 @@ REG_PREFIX=docker.io
 IMAGE_NAME=dajobe/nghttpx
 IMAGE_TAG=latest
 
-NGHTTPX_VERSION=$(shell awk '/^ENV NGHTTPX_VERSION/ {print $3}' Dockerfile)
+NGHTTP2_VERSION=$(shell awk '/^ENV NGHTTP2_VERSION/ {print $$3}' Dockerfile)
 
 build:
-	@echo "Building nghttpx image $(NGHTTPX_VERSION)"
+	@echo "Building nghttpx image $(NGHTTP2_VERSION)"
 	$(DOCKER) build -t $(IMAGE_NAME) .
 
 # This won't work unless you have already set up the repository config

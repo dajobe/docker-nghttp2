@@ -12,6 +12,13 @@ minimal_apt_get_args='-y --no-install-recommends'
 # File containing original installed packages
 PACKAGES_INSTALLED_LOG="/tmp/packages.lst"
 
+# git clone URL
+# NGHTTP2_CLONE_URL="https://github.com/tatsuhiro-t/nghttp2"
+NGHTTP2_CLONE_URL="https://github.com/nghttp2/nghttp2"
+
+# Prefix URL for releases
+# NGHTTP2_RELEASES_URL="https://github.com/tatsuhiro-t/nghttp2/releases"
+NGHTTP2_RELEASES_URL="https://github.com/nghttp2/nghttp2/releases"
 
 ## Build time dependencies ##
 
@@ -21,16 +28,30 @@ PACKAGES_INSTALLED_LOG="/tmp/packages.lst"
 NGHTTP2_BUILD_PACKAGES="git ca-certificates curl xz-utils"
 
 # Core list from docs
-NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES make binutils autoconf automake autotools-dev libtool pkg-config python3 python3-dev zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev"
-
+# For applications:
+#   * OpenSSL >= 1.1.1; or wolfSSL >= 5.7.0; or LibreSSL >= 3.8.1; or
+#      aws-lc >= 1.19.0; or BoringSSL
+#   * libev >= 4.11
+#   * zlib >= 1.2.3
+#   * libc-ares >= 1.7.5
 # Optional:
-#   libcunit1-dev - for tests
-#   libjansson-dev - for HPACK tools
-#   libjemalloc-dev - optional but recommended
-#   cython python-dev - python bindings
+#   * libxml2 >= 2.6.26 : -a option in nghttp
+#   * libsystemd-dev >= 209 : systemd support
+#   * libjansson-dev > 2.5 - for HPACK tools
+#   * libevent-openssl >= 2.0.8 - examples
+#   * jemalloc - mitigate heap fragmentation in long running server programs (recommended)
+#   * cython python-dev - python bindings
+#   * ruby-dev bison - ruby bindings
+#   * libelf-dev
+#   * libbrotli-dev >= 1.0.9 - for boringssl 8879 TLS cert compressions
+#   * quictls ngtpc2 nghttp3 - experimental http/3
+#   * libbpf-dev >= 0.7.0 - optional eBPF program to direct incoming QUIC UDP datagram (http3)
+# Removed: automake autoconf autotools-dev libtool
+NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++ clang make binutils pkg-config zlib1g-dev libssl-dev libxml2-dev libev-dev libevent-dev libjemalloc-dev libc-ares-dev libsystemd-dev"
 
-# building the servers needs g++
-NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES g++"
+
+# Python 3 too
+NGHTTP2_BUILD_PACKAGES="$NGHTTP2_BUILD_PACKAGES python3 python3-dev"
 
 
 ## Run time dependencies ##
