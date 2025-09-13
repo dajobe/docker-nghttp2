@@ -17,4 +17,5 @@ build:
 # This won't work unless you have already set up the repository config
 push:
 	@echo "Pushing image to registries"
+	$(DOCKER) tag localhost/$(IMAGE_NAME):$(IMAGE_TAG) $(REG_PREFIX)/$(IMAGE_NAME):$(IMAGE_TAG)
 	$(DOCKER) push $(REG_PREFIX)/$(IMAGE_NAME):$(IMAGE_TAG)
